@@ -1,0 +1,3 @@
+arb-dir: lib/app/language/arb
+output-dir: lib/app/generated
+output-localization-file: app_localizations.dart

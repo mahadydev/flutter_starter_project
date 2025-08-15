@@ -1,0 +1,127 @@
+{
+    "@@locale": "ur",
+    "helloWorld": "ہیلو ورلڈ!",
+    "@helloWorld": {
+        "description": "پروگرامر کی روایتی سلام"
+    },
+    "connectionStatus": "کنکشن اسٹیٹس",
+    "@connectionStatus": {
+        "description": "کنکشن اسٹیٹس سیکشن کا عنوان"
+    },
+    "theme": "تھیم",
+    "@theme": {
+        "description": "تھیم سیکشن کا عنوان"
+    },
+    "toggleTheme": "تھیم تبدیل کریں",
+    "@toggleTheme": {
+        "description": "تھیم تبدیل کرنے کا بٹن"
+    },
+    "themeSwitched": "تھیم {theme} میں تبدیل ہو گیا",
+    "@themeSwitched": {
+        "description": "تھیم تبدیل ہونے پر پیغام",
+        "placeholders": {
+            "theme": {}
+        }
+    },
+    "language": "زبان",
+    "@language": {
+        "description": "زبان سیکشن کا عنوان"
+    },
+    "languageSwitched": "زبان {lang} میں تبدیل ہو گئی",
+    "@languageSwitched": {
+        "description": "زبان تبدیل ہونے پر پیغام",
+        "placeholders": {
+            "lang": {}
+        }
+    },
+    "current": "موجودہ: {value}",
+    "@current": {
+        "description": "موجودہ ویلیو دکھائیں",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "networking": "نیٹ ورکنگ",
+    "@networking": {
+        "description": "نیٹ ورکنگ سیکشن کا عنوان"
+    },
+    "callNetwork": "نیٹ ورک کال",
+    "@callNetwork": {
+        "description": "نیٹ ورک کال کا بٹن"
+    },
+    "storage": "اسٹوریج",
+    "@storage": {
+        "description": "اسٹوریج سیکشن کا عنوان"
+    },
+    "saveValue": "ویلیو محفوظ کریں",
+    "@saveValue": {
+        "description": "ویلیو محفوظ کرنے کا بٹن"
+    },
+    "readValue": "ویلیو پڑھیں",
+    "@readValue": {
+        "description": "ویلیو پڑھنے کا بٹن"
+    },
+    "stored": "محفوظ شدہ: {value}",
+    "@stored": {
+        "description": "محفوظ شدہ ویلیو دکھائیں",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "snackbarUtils": "اسنیک بار اور یوٹیلٹی",
+    "@snackbarUtils": {
+        "description": "اسنیک بار اور یوٹیلٹی سیکشن کا عنوان"
+    },
+    "showSnackbar": "اسنیک بار دکھائیں",
+    "@showSnackbar": {
+        "description": "اسنیک بار دکھانے کا بٹن"
+    },
+    "snackbarMessage": "یہ اسنیک بار شوکیس سے ہے!",
+    "@snackbarMessage": {
+        "description": "اسنیک بار میں دکھایا جانے والا پیغام"
+    },
+    "loading": "لوڈ ہو رہا ہے...",
+    "@loading": {
+        "description": "لوڈنگ پیغام"
+    },
+    "error": "خرابی: {message}",
+    "@error": {
+        "description": "خرابی کا پیغام",
+        "placeholders": {
+            "message": {}
+        }
+    },
+    "noValueFound": "کوئی ویلیو نہیں ملی",
+    "@noValueFound": {
+        "description": "جب کوئی ویلیو نہ ملے تو پیغام"
+    },
+    "savedToStorage": "اسٹوریج میں محفوظ ہو گیا!",
+    "@savedToStorage": {
+        "description": "ویلیو محفوظ ہونے کا پیغام"
+    },
+    "driftDatabase": "ڈرفٹ ڈیٹا بیس",
+    "@driftDatabase": {
+        "description": "ڈرفٹ ڈیٹا بیس سیکشن کا عنوان"
+    },
+    "addItem": "آئٹم شامل کریں",
+    "@addItem": {
+        "description": "ڈرفٹ ڈیٹا بیس میں آئٹم شامل کرنے کا بٹن"
+    },
+    "clearAll": "سب صاف کریں",
+    "@clearAll": {
+        "description": "تمام آئٹمز صاف کرنے کا بٹن"
+    },
+    "noItemsInDatabase": "ڈیٹا بیس میں کوئی آئٹم نہیں۔",
+    "@noItemsInDatabase": {
+        "description": "جب ڈیٹا بیس میں کوئی آئٹم نہ ہو تو پیغام"
+    },
+    "itemInfo": "آئی ڈی: {id}, نام: {name}, ویلیو: {value}",
+    "@itemInfo": {
+        "description": "ڈرفٹ ڈیٹا بیس آئٹم کی معلومات",
+        "placeholders": {
+            "id": {},
+            "name": {},
+            "value": {}
+        }
+    }
+}

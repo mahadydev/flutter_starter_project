@@ -1,0 +1,127 @@
+{
+  "@@locale": "en",
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "connectionStatus": "Connection Status",
+  "@connectionStatus": {
+    "description": "Section title for connection status"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "Section title for theme"
+  },
+  "toggleTheme": "Toggle Theme",
+  "@toggleTheme": {
+    "description": "Button to toggle theme"
+  },
+  "themeSwitched": "Theme switched to {theme}",
+  "@themeSwitched": {
+    "description": "Message shown when theme is switched",
+    "placeholders": {
+      "theme": {}
+    }
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Section title for language"
+  },
+  "languageSwitched": "Language switched to {lang}",
+  "@languageSwitched": {
+    "description": "Message shown when language is switched",
+    "placeholders": {
+      "lang": {}
+    }
+  },
+  "current": "Current: {value}",
+  "@current": {
+    "description": "Shows the current value",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "networking": "Networking",
+  "@networking": {
+    "description": "Section title for networking"
+  },
+  "callNetwork": "Call Network",
+  "@callNetwork": {
+    "description": "Button to call network"
+  },
+  "storage": "Storage",
+  "@storage": {
+    "description": "Section title for storage"
+  },
+  "saveValue": "Save Value",
+  "@saveValue": {
+    "description": "Button to save value"
+  },
+  "readValue": "Read Value",
+  "@readValue": {
+    "description": "Button to read value"
+  },
+  "stored": "Stored: {value}",
+  "@stored": {
+    "description": "Shows the stored value",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "snackbarUtils": "Snackbar & Utils",
+  "@snackbarUtils": {
+    "description": "Section title for snackbar and utils"
+  },
+  "showSnackbar": "Show Snackbar",
+  "@showSnackbar": {
+    "description": "Button to show snackbar"
+  },
+  "snackbarMessage": "This is a snackbar from Showcase!",
+  "@snackbarMessage": {
+    "description": "Message shown in the snackbar"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading message"
+  },
+  "error": "Error: {message}",
+  "@error": {
+    "description": "Error message with details",
+    "placeholders": {
+      "message": {}
+    }
+  },
+  "noValueFound": "No value found",
+  "@noValueFound": {
+    "description": "Message when no value is found in storage"
+  },
+  "savedToStorage": "Saved to storage!",
+  "@savedToStorage": {
+    "description": "Message when value is saved to storage"
+  },
+  "driftDatabase": "Drift Database",
+  "@driftDatabase": {
+    "description": "Section title for Drift database"
+  },
+  "addItem": "Add Item",
+  "@addItem": {
+    "description": "Button to add item to Drift database"
+  },
+  "clearAll": "Clear All",
+  "@clearAll": {
+    "description": "Button to clear all items from Drift database"
+  },
+  "noItemsInDatabase": "No items in database.",
+  "@noItemsInDatabase": {
+    "description": "Message when there are no items in the Drift database"
+  },
+  "itemInfo": "ID: {id}, Name: {name}, Value: {value}",
+  "@itemInfo": {
+    "description": "Shows info for a Drift database item",
+    "placeholders": {
+      "id": {},
+      "name": {},
+      "value": {}
+    }
+  }
+}

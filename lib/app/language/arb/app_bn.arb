@@ -1,0 +1,127 @@
+{
+    "@@locale": "bn",
+    "helloWorld": "হ্যালো ওয়ার্ল্ড!",
+    "@helloWorld": {
+        "description": "প্রোগ্রামারদের প্রচলিত শুভেচ্ছা"
+    },
+    "connectionStatus": "সংযোগের অবস্থা",
+    "@connectionStatus": {
+        "description": "সংযোগের অবস্থা শিরোনাম"
+    },
+    "theme": "থিম",
+    "@theme": {
+        "description": "থিম শিরোনাম"
+    },
+    "toggleTheme": "থিম পরিবর্তন করুন",
+    "@toggleTheme": {
+        "description": "থিম পরিবর্তনের বোতাম"
+    },
+    "themeSwitched": "থিম {theme} এ পরিবর্তন হয়েছে",
+    "@themeSwitched": {
+        "description": "থিম পরিবর্তনের বার্তা",
+        "placeholders": {
+            "theme": {}
+        }
+    },
+    "language": "ভাষা",
+    "@language": {
+        "description": "ভাষা শিরোনাম"
+    },
+    "languageSwitched": "ভাষা {lang} এ পরিবর্তন হয়েছে",
+    "@languageSwitched": {
+        "description": "ভাষা পরিবর্তনের বার্তা",
+        "placeholders": {
+            "lang": {}
+        }
+    },
+    "current": "বর্তমান: {value}",
+    "@current": {
+        "description": "বর্তমান মান দেখায়",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "networking": "নেটওয়ার্কিং",
+    "@networking": {
+        "description": "নেটওয়ার্কিং শিরোনাম"
+    },
+    "callNetwork": "নেটওয়ার্ক কল",
+    "@callNetwork": {
+        "description": "নেটওয়ার্ক কল বোতাম"
+    },
+    "storage": "স্টোরেজ",
+    "@storage": {
+        "description": "স্টোরেজ শিরোনাম"
+    },
+    "saveValue": "মান সংরক্ষণ করুন",
+    "@saveValue": {
+        "description": "মান সংরক্ষণের বোতাম"
+    },
+    "readValue": "মান পড়ুন",
+    "@readValue": {
+        "description": "মান পড়ার বোতাম"
+    },
+    "stored": "সংরক্ষিত: {value}",
+    "@stored": {
+        "description": "সংরক্ষিত মান দেখায়",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "snackbarUtils": "স্ন্যাকবার ও ইউটিলিটি",
+    "@snackbarUtils": {
+        "description": "স্ন্যাকবার ও ইউটিলিটি শিরোনাম"
+    },
+    "showSnackbar": "স্ন্যাকবার দেখান",
+    "@showSnackbar": {
+        "description": "স্ন্যাকবার দেখানোর বোতাম"
+    },
+    "snackbarMessage": "এটি শোকেস থেকে একটি স্ন্যাকবার!",
+    "@snackbarMessage": {
+        "description": "স্ন্যাকবারে দেখানো বার্তা"
+    },
+    "loading": "লোড হচ্ছে...",
+    "@loading": {
+        "description": "লোড হচ্ছে বার্তা"
+    },
+    "error": "ত্রুটি: {message}",
+    "@error": {
+        "description": "ত্রুটি বার্তা",
+        "placeholders": {
+            "message": {}
+        }
+    },
+    "noValueFound": "কোনো মান পাওয়া যায়নি",
+    "@noValueFound": {
+        "description": "কোনো মান পাওয়া না গেলে বার্তা"
+    },
+    "savedToStorage": "স্টোরেজে সংরক্ষিত!",
+    "@savedToStorage": {
+        "description": "মান সংরক্ষণের বার্তা"
+    },
+    "driftDatabase": "ড্রিফট ডাটাবেস",
+    "@driftDatabase": {
+        "description": "ড্রিফট ডাটাবেস শিরোনাম"
+    },
+    "addItem": "আইটেম যোগ করুন",
+    "@addItem": {
+        "description": "ড্রিফট ডাটাবেসে আইটেম যোগ করার বোতাম"
+    },
+    "clearAll": "সব মুছে ফেলুন",
+    "@clearAll": {
+        "description": "সব আইটেম মুছে ফেলার বোতাম"
+    },
+    "noItemsInDatabase": "ডাটাবেসে কোনো আইটেম নেই।",
+    "@noItemsInDatabase": {
+        "description": "ডাটাবেসে কোনো আইটেম না থাকলে বার্তা"
+    },
+    "itemInfo": "আইডি: {id}, নাম: {name}, মান: {value}",
+    "@itemInfo": {
+        "description": "ড্রিফট ডাটাবেস আইটেমের তথ্য",
+        "placeholders": {
+            "id": {},
+            "name": {},
+            "value": {}
+        }
+    }
+}

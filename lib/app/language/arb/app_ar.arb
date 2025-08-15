@@ -1,0 +1,127 @@
+{
+    "@@locale": "ar",
+    "helloWorld": "مرحبا بالعالم!",
+    "@helloWorld": {
+        "description": "التحية التقليدية للمبرمجين"
+    },
+    "connectionStatus": "حالة الاتصال",
+    "@connectionStatus": {
+        "description": "عنوان قسم حالة الاتصال"
+    },
+    "theme": "المظهر",
+    "@theme": {
+        "description": "عنوان قسم المظهر"
+    },
+    "toggleTheme": "تبديل المظهر",
+    "@toggleTheme": {
+        "description": "زر تبديل المظهر"
+    },
+    "themeSwitched": "تم تبديل المظهر إلى {theme}",
+    "@themeSwitched": {
+        "description": "رسالة عند تبديل المظهر",
+        "placeholders": {
+            "theme": {}
+        }
+    },
+    "language": "اللغة",
+    "@language": {
+        "description": "عنوان قسم اللغة"
+    },
+    "languageSwitched": "تم تبديل اللغة إلى {lang}",
+    "@languageSwitched": {
+        "description": "رسالة عند تبديل اللغة",
+        "placeholders": {
+            "lang": {}
+        }
+    },
+    "current": "الحالي: {value}",
+    "@current": {
+        "description": "عرض القيمة الحالية",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "networking": "الشبكة",
+    "@networking": {
+        "description": "عنوان قسم الشبكة"
+    },
+    "callNetwork": "اتصال بالشبكة",
+    "@callNetwork": {
+        "description": "زر الاتصال بالشبكة"
+    },
+    "storage": "التخزين",
+    "@storage": {
+        "description": "عنوان قسم التخزين"
+    },
+    "saveValue": "حفظ القيمة",
+    "@saveValue": {
+        "description": "زر حفظ القيمة"
+    },
+    "readValue": "قراءة القيمة",
+    "@readValue": {
+        "description": "زر قراءة القيمة"
+    },
+    "stored": "المخزن: {value}",
+    "@stored": {
+        "description": "عرض القيمة المخزنة",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "snackbarUtils": "الإشعارات والأدوات",
+    "@snackbarUtils": {
+        "description": "عنوان قسم الإشعارات والأدوات"
+    },
+    "showSnackbar": "إظهار إشعار",
+    "@showSnackbar": {
+        "description": "زر إظهار الإشعار"
+    },
+    "snackbarMessage": "هذا إشعار من شاشة العرض!",
+    "@snackbarMessage": {
+        "description": "رسالة تظهر في الإشعار"
+    },
+    "loading": "جار التحميل...",
+    "@loading": {
+        "description": "رسالة التحميل"
+    },
+    "error": "خطأ: {message}",
+    "@error": {
+        "description": "رسالة الخطأ مع التفاصيل",
+        "placeholders": {
+            "message": {}
+        }
+    },
+    "noValueFound": "لا توجد قيمة",
+    "@noValueFound": {
+        "description": "رسالة عند عدم وجود قيمة"
+    },
+    "savedToStorage": "تم الحفظ في التخزين!",
+    "@savedToStorage": {
+        "description": "رسالة عند حفظ القيمة"
+    },
+    "driftDatabase": "قاعدة بيانات دريفت",
+    "@driftDatabase": {
+        "description": "عنوان قسم قاعدة بيانات دريفت"
+    },
+    "addItem": "إضافة عنصر",
+    "@addItem": {
+        "description": "زر إضافة عنصر إلى قاعدة البيانات"
+    },
+    "clearAll": "مسح الكل",
+    "@clearAll": {
+        "description": "زر مسح جميع العناصر"
+    },
+    "noItemsInDatabase": "لا توجد عناصر في قاعدة البيانات.",
+    "@noItemsInDatabase": {
+        "description": "رسالة عند عدم وجود عناصر في قاعدة البيانات"
+    },
+    "itemInfo": "المعرف: {id}، الاسم: {name}، القيمة: {value}",
+    "@itemInfo": {
+        "description": "معلومات عنصر قاعدة بيانات دريفت",
+        "placeholders": {
+            "id": {},
+            "name": {},
+            "value": {}
+        }
+    }
+}

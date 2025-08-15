@@ -1,0 +1,82 @@
+name: flutter_starter_project
+description: "A flutter starting template for new project (clean architecture+bloc)"
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: ">=3.9.0"
+  flutter: ">=3.35.1"
+dependencies:
+  # Flutter SDK & Localization
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: 0.20.2
+
+  # Flutter UI Components
+  cupertino_icons: 1.0.8
+
+  # Dependency Management 
+  get_it: 8.2.0
+  path_provider: 2.1.5
+
+  # Networking
+  dio: 5.9.0
+  retrofit: 4.7.1
+  internet_connection_checker_plus: 2.7.2
+  connectivity_plus: 6.1.5
+  pretty_dio_logger: 1.4.0
+
+  # Utilities
+  logger: 2.6.1
+  flutter_native_splash: 2.4.6
+  flutter_dotenv: 5.2.1
+  flutter_screenutil: 5.9.3
+  google_fonts: 6.3.0
+  path: 1.9.1
+
+  # Storages
+  shared_preferences: 2.5.3
+  flutter_secure_storage: 9.2.4
+  drift: 2.28.1
+  drift_flutter: 0.2.5
+
+  # Model and Code Gen
+  freezed_annotation: 3.1.0
+  json_annotation: 4.9.0
+
+  # State Management
+  flutter_bloc: 9.1.1
+
+  # Navigation and Routing
+  go_router: 16.1.0
+
+
+dev_dependencies:
+  # Code generation
+  build_runner: 2.6.0
+  freezed: 3.2.0
+  json_serializable: 6.10.0
+  drift_dev: 2.28.1
+  retrofit_generator: 10.0.2
+  flutter_gen_runner: 5.11.0
+
+  # Testing
+  flutter_test:
+    sdk: flutter
+  bloc_test: 10.0.0
+  mocktail: 1.0.4
+  mockito: 5.5.0
+  integration_test:
+    sdk: flutter
+
+  # Linting & tools
+  flutter_lints: 6.0.0
+  flutter_launcher_icons: 0.14.4
+
+
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/.env

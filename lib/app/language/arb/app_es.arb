@@ -1,0 +1,127 @@
+{
+    "@@locale": "es",
+    "helloWorld": "¡Hola Mundo!",
+    "@helloWorld": {
+        "description": "El saludo convencional del programador"
+    },
+    "connectionStatus": "Estado de conexión",
+    "@connectionStatus": {
+        "description": "Título de la sección de estado de conexión"
+    },
+    "theme": "Tema",
+    "@theme": {
+        "description": "Título de la sección de tema"
+    },
+    "toggleTheme": "Cambiar tema",
+    "@toggleTheme": {
+        "description": "Botón para cambiar el tema"
+    },
+    "themeSwitched": "Tema cambiado a {theme}",
+    "@themeSwitched": {
+        "description": "Mensaje mostrado cuando se cambia el tema",
+        "placeholders": {
+            "theme": {}
+        }
+    },
+    "language": "Idioma",
+    "@language": {
+        "description": "Título de la sección de idioma"
+    },
+    "languageSwitched": "Idioma cambiado a {lang}",
+    "@languageSwitched": {
+        "description": "Mensaje mostrado cuando se cambia el idioma",
+        "placeholders": {
+            "lang": {}
+        }
+    },
+    "current": "Actual: {value}",
+    "@current": {
+        "description": "Muestra el valor actual",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "networking": "Red",
+    "@networking": {
+        "description": "Título de la sección de red"
+    },
+    "callNetwork": "Llamar a la red",
+    "@callNetwork": {
+        "description": "Botón para llamar a la red"
+    },
+    "storage": "Almacenamiento",
+    "@storage": {
+        "description": "Título de la sección de almacenamiento"
+    },
+    "saveValue": "Guardar valor",
+    "@saveValue": {
+        "description": "Botón para guardar valor"
+    },
+    "readValue": "Leer valor",
+    "@readValue": {
+        "description": "Botón para leer valor"
+    },
+    "stored": "Guardado: {value}",
+    "@stored": {
+        "description": "Muestra el valor guardado",
+        "placeholders": {
+            "value": {}
+        }
+    },
+    "snackbarUtils": "Snackbar y Utilidades",
+    "@snackbarUtils": {
+        "description": "Título de la sección de snackbar y utilidades"
+    },
+    "showSnackbar": "Mostrar Snackbar",
+    "@showSnackbar": {
+        "description": "Botón para mostrar snackbar"
+    },
+    "snackbarMessage": "¡Este es un snackbar de Showcase!",
+    "@snackbarMessage": {
+        "description": "Mensaje mostrado en el snackbar"
+    },
+    "loading": "Cargando...",
+    "@loading": {
+        "description": "Mensaje de carga"
+    },
+    "error": "Error: {message}",
+    "@error": {
+        "description": "Mensaje de error con detalles",
+        "placeholders": {
+            "message": {}
+        }
+    },
+    "noValueFound": "No se encontró valor",
+    "@noValueFound": {
+        "description": "Mensaje cuando no se encuentra valor en el almacenamiento"
+    },
+    "savedToStorage": "¡Guardado en almacenamiento!",
+    "@savedToStorage": {
+        "description": "Mensaje cuando se guarda un valor en el almacenamiento"
+    },
+    "driftDatabase": "Base de datos Drift",
+    "@driftDatabase": {
+        "description": "Título de la sección de base de datos Drift"
+    },
+    "addItem": "Agregar elemento",
+    "@addItem": {
+        "description": "Botón para agregar elemento a la base de datos Drift"
+    },
+    "clearAll": "Borrar todo",
+    "@clearAll": {
+        "description": "Botón para borrar todos los elementos de la base de datos Drift"
+    },
+    "noItemsInDatabase": "No hay elementos en la base de datos.",
+    "@noItemsInDatabase": {
+        "description": "Mensaje cuando no hay elementos en la base de datos Drift"
+    },
+    "itemInfo": "ID: {id}, Nombre: {name}, Valor: {value}",
+    "@itemInfo": {
+        "description": "Muestra información de un elemento de la base de datos Drift",
+        "placeholders": {
+            "id": {},
+            "name": {},
+            "value": {}
+        }
+    }
+}
