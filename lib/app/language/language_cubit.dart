@@ -18,15 +18,6 @@ class LanguageCubit extends Cubit<LanguageState> {
     return cubit;
   }
 
-  /// Switches the app language to the specified [locale].
-  /// This method updates the state with the new locale and saves it to storage.
-  /// @param locale The new locale to switch to.
-  Future<void> switchLanguage(Locale locale) async {
-    final parts = locale.toString().split('_');
-    emit(state.copyWith(locale: parts.isNotEmpty ? Locale(parts[0]) : null));
-    await _storage.setString(StorageKeys.locale, locale.toString());
-  }
-
   /// Loads the saved language from storage or uses the device locale if not set.
   /// If the device locale is not supported, it falls back to the default locale.
   /// /// This method should be called during app initialization to ensure the correct
@@ -52,5 +43,14 @@ class LanguageCubit extends Cubit<LanguageState> {
       );
       emit(state.copyWith(locale: locale));
     }
+  }
+
+  /// Switches the app language to the specified [locale].
+  /// This method updates the state with the new locale and saves it to storage.
+  /// @param locale The new locale to switch to.
+  Future<void> switchLanguage(Locale locale) async {
+    final parts = locale.toString().split('_');
+    emit(state.copyWith(locale: parts.isNotEmpty ? Locale(parts[0]) : null));
+    await _storage.setString(StorageKeys.locale, locale.toString());
   }
 }
