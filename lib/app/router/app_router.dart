@@ -20,7 +20,7 @@ class AppRouter {
     navigatorKey: _rootNavigatorKey,
     initialLocation: demo,
     debugLogDiagnostics: true,
-    redirect: (context, state) async {
+    redirect: (context, state) {
       return null;
     },
     routes: [

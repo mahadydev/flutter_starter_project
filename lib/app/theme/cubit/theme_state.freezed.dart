@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ThemeState {
 
- ThemeMode get themeMode; bool get isLoading;
+ String get fontFamily; Color get primaryColor; ThemeMode get themeMode;
 /// Create a copy of ThemeState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $ThemeStateCopyWith<ThemeState> get copyWith => _$ThemeStateCopyWithImpl<ThemeSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThemeState&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThemeState&&(identical(other.fontFamily, fontFamily) || other.fontFamily == fontFamily)&&(identical(other.primaryColor, primaryColor) || other.primaryColor == primaryColor)&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,themeMode,isLoading);
+int get hashCode => Object.hash(runtimeType,fontFamily,primaryColor,themeMode);
 
 @override
 String toString() {
-  return 'ThemeState(themeMode: $themeMode, isLoading: $isLoading)';
+  return 'ThemeState(fontFamily: $fontFamily, primaryColor: $primaryColor, themeMode: $themeMode)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $ThemeStateCopyWith<$Res>  {
   factory $ThemeStateCopyWith(ThemeState value, $Res Function(ThemeState) _then) = _$ThemeStateCopyWithImpl;
 @useResult
 $Res call({
- ThemeMode themeMode, bool isLoading
+ String fontFamily, Color primaryColor, ThemeMode themeMode
 });
 
 
@@ -62,11 +62,12 @@ class _$ThemeStateCopyWithImpl<$Res>
 
 /// Create a copy of ThemeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? themeMode = null,Object? isLoading = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? fontFamily = null,Object? primaryColor = null,Object? themeMode = null,}) {
   return _then(_self.copyWith(
-themeMode: null == themeMode ? _self.themeMode : themeMode // ignore: cast_nullable_to_non_nullable
-as ThemeMode,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,
+fontFamily: null == fontFamily ? _self.fontFamily : fontFamily // ignore: cast_nullable_to_non_nullable
+as String,primaryColor: null == primaryColor ? _self.primaryColor : primaryColor // ignore: cast_nullable_to_non_nullable
+as Color,themeMode: null == themeMode ? _self.themeMode : themeMode // ignore: cast_nullable_to_non_nullable
+as ThemeMode,
   ));
 }
 
@@ -148,10 +149,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ThemeMode themeMode,  bool isLoading)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String fontFamily,  Color primaryColor,  ThemeMode themeMode)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThemeState() when $default != null:
-return $default(_that.themeMode,_that.isLoading);case _:
+return $default(_that.fontFamily,_that.primaryColor,_that.themeMode);case _:
   return orElse();
 
 }
@@ -169,10 +170,10 @@ return $default(_that.themeMode,_that.isLoading);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ThemeMode themeMode,  bool isLoading)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String fontFamily,  Color primaryColor,  ThemeMode themeMode)  $default,) {final _that = this;
 switch (_that) {
 case _ThemeState():
-return $default(_that.themeMode,_that.isLoading);}
+return $default(_that.fontFamily,_that.primaryColor,_that.themeMode);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -186,10 +187,10 @@ return $default(_that.themeMode,_that.isLoading);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ThemeMode themeMode,  bool isLoading)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String fontFamily,  Color primaryColor,  ThemeMode themeMode)?  $default,) {final _that = this;
 switch (_that) {
 case _ThemeState() when $default != null:
-return $default(_that.themeMode,_that.isLoading);case _:
+return $default(_that.fontFamily,_that.primaryColor,_that.themeMode);case _:
   return null;
 
 }
@@ -201,11 +202,12 @@ return $default(_that.themeMode,_that.isLoading);case _:
 
 
 class _ThemeState implements ThemeState {
-  const _ThemeState({this.themeMode = ThemeMode.system, this.isLoading = false});
+  const _ThemeState({this.fontFamily = 'Figtree', this.primaryColor = AppColors.primary, this.themeMode = ThemeMode.system});
   
 
+@override@JsonKey() final  String fontFamily;
+@override@JsonKey() final  Color primaryColor;
 @override@JsonKey() final  ThemeMode themeMode;
-@override@JsonKey() final  bool isLoading;
 
 /// Create a copy of ThemeState
 /// with the given fields replaced by the non-null parameter values.
@@ -217,16 +219,16 @@ _$ThemeStateCopyWith<_ThemeState> get copyWith => __$ThemeStateCopyWithImpl<_The
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ThemeState&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ThemeState&&(identical(other.fontFamily, fontFamily) || other.fontFamily == fontFamily)&&(identical(other.primaryColor, primaryColor) || other.primaryColor == primaryColor)&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,themeMode,isLoading);
+int get hashCode => Object.hash(runtimeType,fontFamily,primaryColor,themeMode);
 
 @override
 String toString() {
-  return 'ThemeState(themeMode: $themeMode, isLoading: $isLoading)';
+  return 'ThemeState(fontFamily: $fontFamily, primaryColor: $primaryColor, themeMode: $themeMode)';
 }
 
 
@@ -237,7 +239,7 @@ abstract mixin class _$ThemeStateCopyWith<$Res> implements $ThemeStateCopyWith<$
   factory _$ThemeStateCopyWith(_ThemeState value, $Res Function(_ThemeState) _then) = __$ThemeStateCopyWithImpl;
 @override @useResult
 $Res call({
- ThemeMode themeMode, bool isLoading
+ String fontFamily, Color primaryColor, ThemeMode themeMode
 });
 
 
@@ -254,11 +256,12 @@ class __$ThemeStateCopyWithImpl<$Res>
 
 /// Create a copy of ThemeState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? themeMode = null,Object? isLoading = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? fontFamily = null,Object? primaryColor = null,Object? themeMode = null,}) {
   return _then(_ThemeState(
-themeMode: null == themeMode ? _self.themeMode : themeMode // ignore: cast_nullable_to_non_nullable
-as ThemeMode,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,
+fontFamily: null == fontFamily ? _self.fontFamily : fontFamily // ignore: cast_nullable_to_non_nullable
+as String,primaryColor: null == primaryColor ? _self.primaryColor : primaryColor // ignore: cast_nullable_to_non_nullable
+as Color,themeMode: null == themeMode ? _self.themeMode : themeMode // ignore: cast_nullable_to_non_nullable
+as ThemeMode,
   ));
 }
 

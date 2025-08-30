@@ -19,7 +19,7 @@ class _NetworkSectionState extends State<NetworkSection> {
     setState(() => _networkResult = context.localeKeys.loading);
     try {
       final response = await serviceLocator<RestApiClient>().getSomeData();
-      setState(() => _networkResult = response.toString());
+      setState(() => _networkResult = response);
     } on DioException catch (e) {
       setState(() => _networkResult = context.localeKeys.error(e.message!));
     }

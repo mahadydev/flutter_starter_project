@@ -7,7 +7,7 @@ part 'example_items_dao.g.dart';
 @DriftAccessor(tables: [ExampleItems])
 class ExampleItemsDao extends DatabaseAccessor<AppDatabase>
     with _$ExampleItemsDaoMixin {
-  ExampleItemsDao(super.db);
+  ExampleItemsDao(super.attachedDatabase);
 
   Future<int> insertItem(ExampleItemsCompanion item) =>
       into(exampleItems).insert(item);

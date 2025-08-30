@@ -36,7 +36,7 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<String?> getString(String key) async {
+  Future<String?> getString(String key) {
     return _storage.read(key: key);
   }
 
@@ -134,7 +134,7 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<bool> containsKey(String key) async {
+  Future<bool> containsKey(String key) {
     return _storage.containsKey(key: key);
   }
 }

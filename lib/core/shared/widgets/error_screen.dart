@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_starter_project/app/generated/app_localizations.dart';
@@ -124,5 +125,13 @@ class ErrorScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty<Object?>('error', error))
+      ..add(ObjectFlagProperty<VoidCallback?>.has('onRetry', onRetry));
   }
 }

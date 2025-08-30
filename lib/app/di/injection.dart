@@ -9,7 +9,7 @@ import 'package:flutter_starter_project/core/storage/secure_storage.dart';
 import 'package:flutter_starter_project/core/storage/simple_storage.dart';
 import 'package:get_it/get_it.dart';
 
-final serviceLocator = GetIt.instance;
+final GetIt serviceLocator = GetIt.instance;
 
 /// Configures all dependencies for the application.
 /// This function should be called at app startup.
@@ -32,7 +32,7 @@ Future<void> _registerStorageServices() async {
     ..registerLazySingleton<SecureStorageService>(SecureStorageServiceImpl.new)
     // SimpleStorageService for simple key-value storage (e.g., preferences)
     ..registerSingletonAsync<SimpleStorageService>(
-      () async => SimpleStorageServiceImpl.create(),
+      SimpleStorageServiceImpl.create,
     );
   await serviceLocator.isReady<SimpleStorageService>();
 }
@@ -53,7 +53,7 @@ Future<void> _registerNetworkServices() async {
 /// Registers AppDatabase singleton for local database access using Drift.
 Future<void> _registerDatabase() async {
   serviceLocator.registerSingletonAsync<AppDatabase>(
-    () async => AppDatabase.create(),
+    AppDatabase.create,
     dispose: (db) => db.close(),
   );
   await serviceLocator.isReady<AppDatabase>();

@@ -37,8 +37,16 @@ class MyApp extends StatelessWidget {
                 supportedLocales: AppLocalizations.supportedLocales,
                 locale: languageState.locale,
                 routerConfig: AppRouter.router,
-                theme: AppTheme.lightTheme,
-                darkTheme: AppTheme.darkTheme,
+                theme: AppTheme.lightTheme(
+                  context,
+                  themeState.primaryColor,
+                  themeState.fontFamily,
+                ),
+                darkTheme: AppTheme.darkTheme(
+                  context,
+                  themeState.primaryColor,
+                  themeState.fontFamily,
+                ),
                 themeMode: themeState.themeMode,
                 builder: (context, child) {
                   return MediaQuery(
