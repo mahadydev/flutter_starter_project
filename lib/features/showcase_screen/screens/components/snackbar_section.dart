@@ -7,7 +7,7 @@ class SnackbarSection extends StatelessWidget {
   const SnackbarSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ElevatedButton.icon(
       icon: Icon(Icons.message, size: 20.sp),
       label: Text(

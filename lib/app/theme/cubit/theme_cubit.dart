@@ -9,22 +9,22 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   final SimpleStorageService _storage;
 
-  static Future<ThemeCubit> create(SimpleStorageService storage) async {
-    final cubit = ThemeCubit(storage);
+  static Future<ThemeCubit> create(final SimpleStorageService storage) async {
+    final ThemeCubit cubit = ThemeCubit(storage);
     await cubit.loadTheme();
     return cubit;
   }
 
-  Future<void> switchTheme(ThemeMode theme) async {
+  Future<void> switchTheme(final ThemeMode theme) async {
     emit(state.copyWith(themeMode: theme));
     await _storage.setString(StorageKeys.themeMode, theme.toString());
   }
 
   Future<void> loadTheme() async {
-    final themeString = await _storage.getString(StorageKeys.themeMode);
+    final String? themeString = await _storage.getString(StorageKeys.themeMode);
     if (themeString != null) {
-      final theme = ThemeMode.values.firstWhere(
-        (e) => e.toString() == themeString,
+      final ThemeMode theme = ThemeMode.values.firstWhere(
+        (final ThemeMode e) => e.toString() == themeString,
         orElse: () => ThemeMode.system,
       );
       emit(state.copyWith(themeMode: theme));

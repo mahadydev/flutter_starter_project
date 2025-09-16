@@ -5,5 +5,5 @@ part 'language_state.freezed.dart';
 
 @freezed
 sealed class LanguageState with _$LanguageState {
-  const factory LanguageState({Locale? locale}) = _LanguageState;
+  const factory LanguageState({final Locale? locale}) = _LanguageState;
 }

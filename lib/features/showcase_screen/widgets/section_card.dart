@@ -9,7 +9,7 @@ class SectionCard extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Card(
       elevation: 2,
       margin: EdgeInsets.zero,
@@ -18,7 +18,7 @@ class SectionCard extends StatelessWidget {
         padding: EdgeInsets.all(16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Text(
               title,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -35,7 +35,7 @@ class SectionCard extends StatelessWidget {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(StringProperty('title', title));
   }

@@ -10,13 +10,13 @@ class LanguageSection extends StatelessWidget {
   const LanguageSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final languageCubit = context.read<LanguageCubit>();
+  Widget build(final BuildContext context) {
+    final LanguageCubit languageCubit = context.read<LanguageCubit>();
 
     return BlocBuilder<LanguageCubit, LanguageState>(
-      builder: (context, langState) {
+      builder: (final BuildContext context, final LanguageState langState) {
         return Row(
-          children: [
+          children: <Widget>[
             Text(
               context.localeKeys.current(
                 langState.locale?.languageCode.toUpperCase() ?? '',
@@ -36,12 +36,14 @@ class LanguageSection extends StatelessWidget {
                   underline: const SizedBox.shrink(),
                   isExpanded: true,
                   value: langState.locale,
-                  onChanged: (Locale? newLocale) async {
+                  onChanged: (final Locale? newLocale) async {
                     if (newLocale != null) {
                       await languageCubit.switchLanguage(newLocale);
                     }
                   },
-                  items: AppLocalizations.supportedLocales.map((locale) {
+                  items: AppLocalizations.supportedLocales.map((
+                    final Locale locale,
+                  ) {
                     return DropdownMenuItem<Locale>(
                       value: locale,
                       child: Padding(

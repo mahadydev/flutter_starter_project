@@ -4,12 +4,12 @@ import 'package:flutter_starter_project/core/storage/drift/tables/example_items.
 
 part 'example_items_dao.g.dart';
 
-@DriftAccessor(tables: [ExampleItems])
+@DriftAccessor(tables: <Type>[ExampleItems])
 class ExampleItemsDao extends DatabaseAccessor<AppDatabase>
     with _$ExampleItemsDaoMixin {
   ExampleItemsDao(super.attachedDatabase);
 
-  Future<int> insertItem(ExampleItemsCompanion item) =>
+  Future<int> insertItem(final ExampleItemsCompanion item) =>
       into(exampleItems).insert(item);
 
   Future<List<ExampleItem>> getAllItems() => select(exampleItems).get();

@@ -15,7 +15,7 @@ class _StorageSectionState extends State<StorageSection> {
   String? _storageValue;
 
   Future<void> _saveToStorage() async {
-    final storage = serviceLocator<SimpleStorageService>();
+    final SimpleStorageService storage = serviceLocator<SimpleStorageService>();
     await storage.setString(
       'showcase_key',
       'Hello from Showcase! ${DateTime.now()}',
@@ -23,20 +23,20 @@ class _StorageSectionState extends State<StorageSection> {
   }
 
   Future<void> _readFromStorage() async {
-    final storage = serviceLocator<SimpleStorageService>();
-    final value = await storage.getString('showcase_key');
+    final SimpleStorageService storage = serviceLocator<SimpleStorageService>();
+    final String? value = await storage.getString('showcase_key');
     setState(() {
       _storageValue = value ?? context.localeKeys.noValueFound;
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Row(
-          children: [
+          children: <Widget>[
             ElevatedButton(
               onPressed: _saveToStorage,
               child: Text(
@@ -54,7 +54,7 @@ class _StorageSectionState extends State<StorageSection> {
             ),
           ],
         ),
-        if (_storageValue != null) ...[
+        if (_storageValue != null) ...<Widget>[
           SizedBox(height: 8.h),
           Text(
             context.localeKeys.stored(_storageValue!),

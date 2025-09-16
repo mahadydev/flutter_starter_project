@@ -9,6 +9,6 @@ sealed class ThemeState with _$ThemeState {
   const factory ThemeState({
     @Default('Figtree') final String fontFamily,
     @Default(AppColors.primary) final Color primaryColor,
-    @Default(ThemeMode.system) ThemeMode themeMode,
+    @Default(ThemeMode.system) final ThemeMode themeMode,
   }) = _ThemeState;
 }

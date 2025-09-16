@@ -13,9 +13,9 @@ class ErrorScreen extends StatelessWidget {
   final VoidCallback? onRetry;
 
   @override
-  Widget build(BuildContext context) {
-    final themeCubit = context.read<ThemeCubit>();
-    final languageCubit = context.read<LanguageCubit>();
+  Widget build(final BuildContext context) {
+    final ThemeCubit themeCubit = context.read<ThemeCubit>();
+    final LanguageCubit languageCubit = context.read<LanguageCubit>();
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -24,7 +24,7 @@ class ErrorScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               Icon(
                 Icons.error_outline,
                 color: Theme.of(context).colorScheme.error,
@@ -39,7 +39,7 @@ class ErrorScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              if (error != null) ...[
+              if (error != null) ...<Widget>[
                 const SizedBox(height: 16),
                 Container(
                   padding: const EdgeInsets.all(12),
@@ -60,7 +60,7 @@ class ErrorScreen extends StatelessWidget {
               const SizedBox(height: 32),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   ElevatedButton.icon(
                     icon: const Icon(Icons.refresh),
                     label: const Text('Retry'),
@@ -83,40 +83,51 @@ class ErrorScreen extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   BlocBuilder<ThemeCubit, ThemeState>(
-                    builder: (context, state) {
-                      final isDark = state.themeMode == ThemeMode.dark;
-                      return IconButton(
-                        tooltip: 'Toggle Theme',
-                        icon: Icon(isDark ? Icons.dark_mode : Icons.light_mode),
-                        onPressed: () async {
-                          await themeCubit.switchTheme(
-                            isDark ? ThemeMode.light : ThemeMode.dark,
+                    builder:
+                        (final BuildContext context, final ThemeState state) {
+                          final bool isDark = state.themeMode == ThemeMode.dark;
+                          return IconButton(
+                            tooltip: 'Toggle Theme',
+                            icon: Icon(
+                              isDark ? Icons.dark_mode : Icons.light_mode,
+                            ),
+                            onPressed: () async {
+                              await themeCubit.switchTheme(
+                                isDark ? ThemeMode.light : ThemeMode.dark,
+                              );
+                            },
                           );
                         },
-                      );
-                    },
                   ),
                   BlocBuilder<LanguageCubit, LanguageState>(
-                    builder: (context, langState) {
-                      return DropdownButton<Locale>(
-                        value: langState.locale,
-                        underline: const SizedBox(),
-                        icon: const Icon(Icons.language),
-                        onChanged: (Locale? newLocale) async {
-                          if (newLocale != null) {
-                            await languageCubit.switchLanguage(newLocale);
-                          }
-                        },
-                        items: AppLocalizations.supportedLocales.map((locale) {
-                          return DropdownMenuItem<Locale>(
-                            value: locale,
-                            child: Text(locale.toLanguageTag().toUpperCase()),
+                    builder:
+                        (
+                          final BuildContext context,
+                          final LanguageState langState,
+                        ) {
+                          return DropdownButton<Locale>(
+                            value: langState.locale,
+                            underline: const SizedBox(),
+                            icon: const Icon(Icons.language),
+                            onChanged: (final Locale? newLocale) async {
+                              if (newLocale != null) {
+                                await languageCubit.switchLanguage(newLocale);
+                              }
+                            },
+                            items: AppLocalizations.supportedLocales.map((
+                              final Locale locale,
+                            ) {
+                              return DropdownMenuItem<Locale>(
+                                value: locale,
+                                child: Text(
+                                  locale.toLanguageTag().toUpperCase(),
+                                ),
+                              );
+                            }).toList(),
                           );
-                        }).toList(),
-                      );
-                    },
+                        },
                   ),
                 ],
               ),
@@ -128,7 +139,7 @@ class ErrorScreen extends StatelessWidget {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty<Object?>('error', error))

@@ -8,8 +8,8 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 
 class InternetConnectionCubit extends Cubit<InternetConnectionState> {
   InternetConnectionCubit({
-    Connectivity? connectivity,
-    InternetConnection? internetConnection,
+    final Connectivity? connectivity,
+    final InternetConnection? internetConnection,
   }) : _connectivity = connectivity ?? Connectivity(),
        _internetConnection = internetConnection ?? InternetConnection(),
        super(const InternetConnectionState()) {
@@ -31,12 +31,13 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
     );
 
     // Initial check
-    final connectivityResults = await _connectivity.checkConnectivity();
-    final result = connectivityResults.isNotEmpty
+    final List<ConnectivityResult> connectivityResults = await _connectivity
+        .checkConnectivity();
+    final ConnectivityResult result = connectivityResults.isNotEmpty
         ? connectivityResults.first
         : ConnectivityResult.none;
 
-    final internetStatus = await _internetConnection.hasInternetAccess;
+    final bool internetStatus = await _internetConnection.hasInternetAccess;
     emit(
       state.copyWith(
         connectionType: _mapConnectivityResult(result),
@@ -47,9 +48,13 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
     );
   }
 
-  Future<void> _onConnectivityChanged(List<ConnectivityResult> results) async {
-    final result = results.isNotEmpty ? results.first : ConnectivityResult.none;
-    final internetStatus = await _internetConnection.hasInternetAccess;
+  Future<void> _onConnectivityChanged(
+    final List<ConnectivityResult> results,
+  ) async {
+    final ConnectivityResult result = results.isNotEmpty
+        ? results.first
+        : ConnectivityResult.none;
+    final bool internetStatus = await _internetConnection.hasInternetAccess;
     emit(
       state.copyWith(
         connectionType: _mapConnectivityResult(result),
@@ -60,7 +65,7 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
     );
   }
 
-  void _onInternetStatusChanged(InternetStatus status) {
+  void _onInternetStatusChanged(final InternetStatus status) {
     emit(
       state.copyWith(
         status: status == InternetStatus.connected
@@ -70,7 +75,7 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
     );
   }
 
-  AppConnectionType _mapConnectivityResult(ConnectivityResult result) {
+  AppConnectionType _mapConnectivityResult(final ConnectivityResult result) {
     switch (result) {
       case ConnectivityResult.wifi:
         return AppConnectionType.wifi;

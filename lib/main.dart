@@ -17,7 +17,7 @@ void main() async {
       designSize: const Size(440, 956), // iPhone 16 Pro Max
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) {
+      builder: (final BuildContext context, final Widget? child) {
         return const MyApp();
       },
     ),

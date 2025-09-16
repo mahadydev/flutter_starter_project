@@ -8,19 +8,23 @@ class ConnectionStatusSection extends StatelessWidget {
   const ConnectionStatusSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return BlocBuilder<InternetConnectionCubit, InternetConnectionState>(
-      builder: (context, state) {
-        return Row(
-          children: [
-            Text(state.status.name, style: TextStyle(fontSize: 16.sp)),
-            SizedBox(width: 8.w),
-            const Text(' - '),
-            SizedBox(width: 8.w),
-            Text(state.connectionType.name, style: TextStyle(fontSize: 16.sp)),
-          ],
-        );
-      },
+      builder:
+          (final BuildContext context, final InternetConnectionState state) {
+            return Row(
+              children: <Widget>[
+                Text(state.status.name, style: TextStyle(fontSize: 16.sp)),
+                SizedBox(width: 8.w),
+                const Text(' - '),
+                SizedBox(width: 8.w),
+                Text(
+                  state.connectionType.name,
+                  style: TextStyle(fontSize: 16.sp),
+                ),
+              ],
+            );
+          },
     );
   }
 }

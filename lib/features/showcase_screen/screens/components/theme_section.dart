@@ -9,13 +9,13 @@ class ThemeSection extends StatelessWidget {
   const ThemeSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final themeCubit = context.read<ThemeCubit>();
+  Widget build(final BuildContext context) {
+    final ThemeCubit themeCubit = context.read<ThemeCubit>();
 
     return BlocBuilder<ThemeCubit, ThemeState>(
-      builder: (context, state) {
+      builder: (final BuildContext context, final ThemeState state) {
         return Row(
-          children: [
+          children: <Widget>[
             Text(
               context.localeKeys.current(state.themeMode.name),
               style: TextStyle(fontSize: 16.sp),
@@ -28,7 +28,7 @@ class ThemeSection extends StatelessWidget {
                 style: TextStyle(fontSize: 14.sp),
               ),
               onPressed: () async {
-                final isDark = state.themeMode == ThemeMode.dark;
+                final bool isDark = state.themeMode == ThemeMode.dark;
                 await themeCubit.switchTheme(
                   isDark ? ThemeMode.light : ThemeMode.dark,
                 );

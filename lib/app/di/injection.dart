@@ -25,7 +25,8 @@ Future<void> configureDependencies() async {
   await serviceLocator.allReady();
 }
 
-/// Registers storage-related singletons (SecureStorageService, SimpleStorageService).
+/// Registers storage-related singletons (SecureStorageService,
+/// SimpleStorageService).
 Future<void> _registerStorageServices() async {
   // SecureStorageService for secure key-value storage (e.g., tokens)
   serviceLocator
@@ -39,7 +40,7 @@ Future<void> _registerStorageServices() async {
 
 /// Registers network-related singletons (Dio, RestApiClient).
 Future<void> _registerNetworkServices() async {
-  final dioModule = DioModule();
+  final DioModule dioModule = DioModule();
 
   // Dio instance for network requests
   serviceLocator
@@ -54,7 +55,7 @@ Future<void> _registerNetworkServices() async {
 Future<void> _registerDatabase() async {
   serviceLocator.registerSingletonAsync<AppDatabase>(
     AppDatabase.create,
-    dispose: (db) => db.close(),
+    dispose: (final AppDatabase db) => db.close(),
   );
   await serviceLocator.isReady<AppDatabase>();
 }
@@ -62,7 +63,7 @@ Future<void> _registerDatabase() async {
 /// Registers ThemeCubit singleton for managing app theme state.
 Future<void> _registerThemeCubit() async {
   serviceLocator.registerSingletonAsync<ThemeCubit>(() async {
-    final themeCubit = await ThemeCubit.create(
+    final ThemeCubit themeCubit = await ThemeCubit.create(
       serviceLocator<SimpleStorageService>(),
     );
     return themeCubit;
@@ -73,7 +74,7 @@ Future<void> _registerThemeCubit() async {
 /// Registers LanguageCubit singleton for managing app language/localization state.
 Future<void> _registerLanguageCubit() async {
   serviceLocator.registerSingletonAsync<LanguageCubit>(() async {
-    final languageCubit = await LanguageCubit.create(
+    final LanguageCubit languageCubit = await LanguageCubit.create(
       serviceLocator<SimpleStorageService>(),
     );
     return languageCubit;

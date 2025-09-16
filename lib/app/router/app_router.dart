@@ -8,7 +8,8 @@ class AppRouter {
 
   // Define the root navigator key
   // This is used to navigate to the root of the app from anywhere in the app
-  static final _rootNavigatorKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> _rootNavigatorKey =
+      GlobalKey<NavigatorState>();
   // Define the shell navigator key
   // This is used to navigate to the shell of the app from anywhere in the app
   // This is useful for nested navigation
@@ -20,15 +21,17 @@ class AppRouter {
     navigatorKey: _rootNavigatorKey,
     initialLocation: demo,
     debugLogDiagnostics: true,
-    redirect: (context, state) {
+    redirect: (final BuildContext context, final GoRouterState state) {
       return null;
     },
-    routes: [
+    routes: <RouteBase>[
       GoRoute(
         path: AppRouter.demo,
-        builder: (context, state) => const ShowcaseScreen(),
+        builder: (final BuildContext context, final GoRouterState state) =>
+            const ShowcaseScreen(),
       ),
     ],
-    errorBuilder: (context, state) => ErrorScreen(error: state.error),
+    errorBuilder: (final BuildContext context, final GoRouterState state) =>
+        ErrorScreen(error: state.error),
   );
 }

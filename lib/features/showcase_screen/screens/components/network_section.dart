@@ -18,7 +18,8 @@ class _NetworkSectionState extends State<NetworkSection> {
   Future<void> _callNetwork() async {
     setState(() => _networkResult = context.localeKeys.loading);
     try {
-      final response = await serviceLocator<RestApiClient>().getSomeData();
+      final String response = await serviceLocator<RestApiClient>()
+          .getSomeData();
       setState(() => _networkResult = response);
     } on DioException catch (e) {
       setState(() => _networkResult = context.localeKeys.error(e.message!));
@@ -26,10 +27,10 @@ class _NetworkSectionState extends State<NetworkSection> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         ElevatedButton.icon(
           icon: Icon(Icons.cloud_download, size: 20.sp),
           label: Text(
@@ -38,7 +39,7 @@ class _NetworkSectionState extends State<NetworkSection> {
           ),
           onPressed: _callNetwork,
         ),
-        if (_networkResult != null) ...[
+        if (_networkResult != null) ...<Widget>[
           SizedBox(height: 8.h),
           Text(_networkResult!, style: TextStyle(fontSize: 14.sp)),
         ],

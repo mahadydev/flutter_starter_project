@@ -14,12 +14,12 @@ class ShowcaseScreen extends StatelessWidget {
   const ShowcaseScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(context.localeKeys.helloWorld)),
       body: ListView(
         padding: EdgeInsets.all(20.w),
-        children: [
+        children: <Widget>[
           SectionCard(
             title: context.localeKeys.connectionStatus,
             child: const ConnectionStatusSection(),

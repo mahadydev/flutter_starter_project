@@ -10,6 +10,7 @@ import 'package:flutter_starter_project/app/theme/cubit/theme_cubit.dart';
 import 'package:flutter_starter_project/app/theme/cubit/theme_state.dart';
 import 'package:flutter_starter_project/core/constants/app_constants.dart';
 import 'package:flutter_starter_project/core/network/connection_checker/internet_connection_cubit.dart';
+import 'package:nested/nested.dart';
 
 final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
     GlobalKey<ScaffoldMessengerState>();
@@ -18,44 +19,53 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => serviceLocator<ThemeCubit>()),
-        BlocProvider(create: (_) => serviceLocator<LanguageCubit>()),
-        BlocProvider(create: (_) => serviceLocator<InternetConnectionCubit>()),
+      providers: <SingleChildWidget>[
+        BlocProvider<ThemeCubit>(create: (_) => serviceLocator<ThemeCubit>()),
+        BlocProvider<LanguageCubit>(
+          create: (_) => serviceLocator<LanguageCubit>(),
+        ),
+        BlocProvider<InternetConnectionCubit>(
+          create: (_) => serviceLocator<InternetConnectionCubit>(),
+        ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, themeState) {
+        builder: (final BuildContext context, final ThemeState themeState) {
           return BlocBuilder<LanguageCubit, LanguageState>(
-            builder: (context, languageState) {
-              return MaterialApp.router(
-                debugShowCheckedModeBanner: false,
-                scaffoldMessengerKey: scaffoldMessengerKey,
-                title: AppConstants.appName,
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                locale: languageState.locale,
-                routerConfig: AppRouter.router,
-                theme: AppTheme.lightTheme(
-                  context,
-                  themeState.primaryColor,
-                  themeState.fontFamily,
-                ),
-                darkTheme: AppTheme.darkTheme(
-                  context,
-                  themeState.primaryColor,
-                  themeState.fontFamily,
-                ),
-                themeMode: themeState.themeMode,
-                builder: (context, child) {
-                  return MediaQuery(
-                    data: MediaQuery.of(context),
-                    child: child!,
+            builder:
+                (
+                  final BuildContext context,
+                  final LanguageState languageState,
+                ) {
+                  return MaterialApp.router(
+                    debugShowCheckedModeBanner: false,
+                    scaffoldMessengerKey: scaffoldMessengerKey,
+                    title: AppConstants.appName,
+                    localizationsDelegates:
+                        AppLocalizations.localizationsDelegates,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    locale: languageState.locale,
+                    routerConfig: AppRouter.router,
+                    theme: AppTheme.lightTheme(
+                      context,
+                      themeState.primaryColor,
+                      themeState.fontFamily,
+                    ),
+                    darkTheme: AppTheme.darkTheme(
+                      context,
+                      themeState.primaryColor,
+                      themeState.fontFamily,
+                    ),
+                    themeMode: themeState.themeMode,
+                    builder: (final BuildContext context, final Widget? child) {
+                      return MediaQuery(
+                        data: MediaQuery.of(context),
+                        child: child!,
+                      );
+                    },
                   );
                 },
-              );
-            },
           );
         },
       ),

@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 class ErrorInterceptor extends Interceptor {
   @override
-  void onError(DioException err, ErrorInterceptorHandler handler) {
+  void onError(final DioException err, final ErrorInterceptorHandler handler) {
     // Log the error
     log(
       'DioError: ${err.message}',
@@ -23,7 +23,7 @@ class ErrorInterceptor extends Interceptor {
     } else if (err.type == DioExceptionType.receiveTimeout) {
       errorMessage = 'Server took too long to respond. Please try again later.';
     } else if (err.type == DioExceptionType.badResponse) {
-      final statusCode = err.response?.statusCode;
+      final int? statusCode = err.response?.statusCode;
       if (statusCode == 401) {
         errorMessage = 'Unauthorized. Please log in again.';
       } else if (statusCode == 404) {
@@ -44,7 +44,7 @@ class ErrorInterceptor extends Interceptor {
     }
 
     // Create a new DioException with the updated error message
-    final updatedError = DioException(
+    final DioException updatedError = DioException(
       requestOptions: err.requestOptions,
       response: err.response,
       type: err.type,

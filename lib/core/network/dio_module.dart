@@ -6,7 +6,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioModule {
   Dio provideDio() {
-    final dio = Dio(
+    final Dio dio = Dio(
       BaseOptions(
         baseUrl: ApiEndpoints.baseUrl,
         connectTimeout: const Duration(seconds: AppConstants.apiConnectTimeout),

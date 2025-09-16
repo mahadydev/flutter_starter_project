@@ -5,7 +5,7 @@ part 'rest_api_client.g.dart';
 
 @RestApi()
 abstract class RestApiClient {
-  factory RestApiClient(Dio dio) = _RestApiClient;
+  factory RestApiClient(final Dio dio) = _RestApiClient;
 
   @GET('/')
   Future<String> getAllData();

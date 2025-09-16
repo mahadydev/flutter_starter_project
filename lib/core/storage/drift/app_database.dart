@@ -10,7 +10,7 @@ import 'package:path_provider/path_provider.dart';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [ExampleItems], daos: [ExampleItemsDao])
+@DriftDatabase(tables: <Type>[ExampleItems], daos: <Type>[ExampleItemsDao])
 class AppDatabase extends _$AppDatabase {
   AppDatabase._internal() : super(_openConnection());
 
@@ -22,8 +22,8 @@ class AppDatabase extends _$AppDatabase {
 
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
-    final dir = await getApplicationDocumentsDirectory();
-    final file = File(p.join(dir.path, 'app_db.sqlite'));
+    final Directory dir = await getApplicationDocumentsDirectory();
+    final File file = File(p.join(dir.path, 'app_db.sqlite'));
     return NativeDatabase(file, logStatements: kDebugMode);
   });
 }

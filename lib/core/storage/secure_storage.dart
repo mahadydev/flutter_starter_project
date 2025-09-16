@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 abstract class SecureStorageService {
-  Future<void> setString(String key, String value);
-  Future<String?> getString(String key);
-  Future<void> setBool(String key, {required bool value});
-  Future<bool?> getBool(String key);
-  Future<void> setInt(String key, int value);
-  Future<int?> getInt(String key);
-  Future<void> setDouble(String key, double value);
-  Future<double?> getDouble(String key);
-  Future<void> setStringList(String key, List<String> value);
-  Future<List<String>?> getStringList(String key);
-  Future<void> setObject(String key, Map<String, dynamic> value);
-  Future<Map<String, dynamic>?> getObject(String key);
-  Future<void> remove(String key);
+  Future<void> setString(final String key, final String value);
+  Future<String?> getString(final String key);
+  Future<void> setBool(final String key, {required final bool value});
+  Future<bool?> getBool(final String key);
+  Future<void> setInt(final String key, final int value);
+  Future<int?> getInt(final String key);
+  Future<void> setDouble(final String key, final double value);
+  Future<double?> getDouble(final String key);
+  Future<void> setStringList(final String key, final List<String> value);
+  Future<List<String>?> getStringList(final String key);
+  Future<void> setObject(final String key, final Map<String, dynamic> value);
+  Future<Map<String, dynamic>?> getObject(final String key);
+  Future<void> remove(final String key);
   Future<void> clear();
-  Future<bool> containsKey(String key);
+  Future<bool> containsKey(final String key);
 }
 
 class SecureStorageServiceImpl implements SecureStorageService {
@@ -31,23 +31,23 @@ class SecureStorageServiceImpl implements SecureStorageService {
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   @override
-  Future<void> setString(String key, String value) async {
+  Future<void> setString(final String key, final String value) async {
     await _storage.write(key: key, value: value);
   }
 
   @override
-  Future<String?> getString(String key) {
+  Future<String?> getString(final String key) {
     return _storage.read(key: key);
   }
 
   @override
-  Future<void> setBool(String key, {required bool value}) async {
+  Future<void> setBool(final String key, {required final bool value}) async {
     await _storage.write(key: key, value: value.toString());
   }
 
   @override
-  Future<bool?> getBool(String key) async {
-    final value = await _storage.read(key: key);
+  Future<bool?> getBool(final String key) async {
+    final String? value = await _storage.read(key: key);
     if (value == null) {
       return null;
     }
@@ -55,13 +55,13 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<void> setInt(String key, int value) async {
+  Future<void> setInt(final String key, final int value) async {
     await _storage.write(key: key, value: value.toString());
   }
 
   @override
-  Future<int?> getInt(String key) async {
-    final value = await _storage.read(key: key);
+  Future<int?> getInt(final String key) async {
+    final String? value = await _storage.read(key: key);
     if (value == null) {
       return null;
     }
@@ -69,13 +69,13 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<void> setDouble(String key, double value) async {
+  Future<void> setDouble(final String key, final double value) async {
     await _storage.write(key: key, value: value.toString());
   }
 
   @override
-  Future<double?> getDouble(String key) async {
-    final value = await _storage.read(key: key);
+  Future<double?> getDouble(final String key) async {
+    final String? value = await _storage.read(key: key);
     if (value == null) {
       return null;
     }
@@ -83,19 +83,19 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<void> setStringList(String key, List<String> value) async {
-    final jsonString = jsonEncode(value);
+  Future<void> setStringList(final String key, final List<String> value) async {
+    final String jsonString = jsonEncode(value);
     await _storage.write(key: key, value: jsonString);
   }
 
   @override
-  Future<List<String>?> getStringList(String key) async {
-    final jsonString = await _storage.read(key: key);
+  Future<List<String>?> getStringList(final String key) async {
+    final String? jsonString = await _storage.read(key: key);
     if (jsonString == null) {
       return null;
     }
     try {
-      final decoded = jsonDecode(jsonString) as List<dynamic>;
+      final List<dynamic> decoded = jsonDecode(jsonString) as List<dynamic>;
       return List<String>.from(decoded);
     } on Exception catch (e) {
       debugPrint(e.toString());
@@ -104,14 +104,17 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<void> setObject(String key, Map<String, dynamic> value) async {
-    final jsonString = jsonEncode(value);
+  Future<void> setObject(
+    final String key,
+    final Map<String, dynamic> value,
+  ) async {
+    final String jsonString = jsonEncode(value);
     await _storage.write(key: key, value: jsonString);
   }
 
   @override
-  Future<Map<String, dynamic>?> getObject(String key) async {
-    final jsonString = await _storage.read(key: key);
+  Future<Map<String, dynamic>?> getObject(final String key) async {
+    final String? jsonString = await _storage.read(key: key);
     if (jsonString == null) {
       return null;
     }
@@ -124,7 +127,7 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<void> remove(String key) async {
+  Future<void> remove(final String key) async {
     await _storage.delete(key: key);
   }
 
@@ -134,7 +137,7 @@ class SecureStorageServiceImpl implements SecureStorageService {
   }
 
   @override
-  Future<bool> containsKey(String key) {
+  Future<bool> containsKey(final String key) {
     return _storage.containsKey(key: key);
   }
 }
