@@ -2,6 +2,8 @@
 
 part of 'rest_api_client.dart';
 
+// dart format off
+
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -98,3 +100,5 @@ class _RestApiClient implements RestApiClient {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
+
+// dart format on
