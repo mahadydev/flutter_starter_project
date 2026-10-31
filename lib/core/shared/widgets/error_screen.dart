@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_starter_project/app/generated/app_localizations.dart';
 import 'package:flutter_starter_project/app/language/language_cubit.dart';
 import 'package:flutter_starter_project/app/language/language_state.dart';
 import 'package:flutter_starter_project/app/theme/cubit/theme_cubit.dart';
 import 'package:flutter_starter_project/app/theme/cubit/theme_state.dart';
+import 'package:material_ui/material_ui.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key, this.error, this.onRetry});
@@ -13,7 +13,7 @@ class ErrorScreen extends StatelessWidget {
   final VoidCallback? onRetry;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final ThemeCubit themeCubit = context.read<ThemeCubit>();
     final LanguageCubit languageCubit = context.read<LanguageCubit>();
 
@@ -85,49 +85,40 @@ class ErrorScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   BlocBuilder<ThemeCubit, ThemeState>(
-                    builder:
-                        (final BuildContext context, final ThemeState state) {
-                          final bool isDark = state.themeMode == ThemeMode.dark;
-                          return IconButton(
-                            tooltip: 'Toggle Theme',
-                            icon: Icon(
-                              isDark ? Icons.dark_mode : Icons.light_mode,
-                            ),
-                            onPressed: () async {
-                              await themeCubit.switchTheme(
-                                isDark ? ThemeMode.light : ThemeMode.dark,
-                              );
-                            },
+                    builder: (BuildContext context, ThemeState state) {
+                      final bool isDark = state.themeMode == ThemeMode.dark;
+                      return IconButton(
+                        tooltip: 'Toggle Theme',
+                        icon: Icon(isDark ? Icons.dark_mode : Icons.light_mode),
+                        onPressed: () async {
+                          await themeCubit.switchTheme(
+                            isDark ? ThemeMode.light : ThemeMode.dark,
                           );
                         },
+                      );
+                    },
                   ),
                   BlocBuilder<LanguageCubit, LanguageState>(
-                    builder:
-                        (
-                          final BuildContext context,
-                          final LanguageState langState,
-                        ) {
-                          return DropdownButton<Locale>(
-                            value: langState.locale,
-                            underline: const SizedBox(),
-                            icon: const Icon(Icons.language),
-                            onChanged: (final Locale? newLocale) async {
-                              if (newLocale != null) {
-                                await languageCubit.switchLanguage(newLocale);
-                              }
-                            },
-                            items: AppLocalizations.supportedLocales.map((
-                              final Locale locale,
-                            ) {
-                              return DropdownMenuItem<Locale>(
-                                value: locale,
-                                child: Text(
-                                  locale.toLanguageTag().toUpperCase(),
-                                ),
-                              );
-                            }).toList(),
-                          );
+                    builder: (BuildContext context, LanguageState langState) {
+                      return DropdownButton<Locale>(
+                        value: langState.locale,
+                        underline: const SizedBox(),
+                        icon: const Icon(Icons.language),
+                        onChanged: (Locale? newLocale) async {
+                          if (newLocale != null) {
+                            await languageCubit.switchLanguage(newLocale);
+                          }
                         },
+                        items: AppLocalizations.supportedLocales.map((
+                          Locale locale,
+                        ) {
+                          return DropdownMenuItem<Locale>(
+                            value: locale,
+                            child: Text(locale.toLanguageTag().toUpperCase()),
+                          );
+                        }).toList(),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -139,7 +130,7 @@ class ErrorScreen extends StatelessWidget {
   }
 
   @override
-  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty<Object?>('error', error))

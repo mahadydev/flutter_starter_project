@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_project/app/app.dart';
 import 'package:flutter_starter_project/app/di/injection.dart';
 import 'package:flutter_starter_project/core/constants/app_constants.dart';
 import 'package:flutter_starter_project/core/services/platform/platform_setup.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,7 @@ void main() async {
       designSize: const Size(440, 956), // iPhone 16 Pro Max
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (final BuildContext context, final Widget? child) {
+      builder: (BuildContext context, Widget? child) {
         return const MyApp();
       },
     ),

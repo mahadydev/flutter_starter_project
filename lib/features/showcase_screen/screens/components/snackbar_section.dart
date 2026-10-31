@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_project/core/shared/extensions/app_localization.dart';
 import 'package:flutter_starter_project/core/utils/snackbar_util.dart';
+import 'package:material_ui/material_ui.dart';
 
 class SnackbarSection extends StatelessWidget {
   const SnackbarSection({super.key});
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     return ElevatedButton.icon(
       icon: Icon(Icons.message, size: 20.sp),
       label: Text(

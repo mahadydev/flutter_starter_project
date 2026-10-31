@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_project/app/di/injection.dart';
 import 'package:flutter_starter_project/core/shared/extensions/app_localization.dart';
 import 'package:flutter_starter_project/core/storage/simple_storage.dart';
+import 'package:material_ui/material_ui.dart';
 
 class StorageSection extends StatefulWidget {
   const StorageSection({super.key});
@@ -31,7 +31,7 @@ class _StorageSectionState extends State<StorageSection> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

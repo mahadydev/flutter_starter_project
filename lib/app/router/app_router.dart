@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_starter_project/core/shared/widgets/error_screen.dart';
 import 'package:flutter_starter_project/features/showcase_screen/screens/showcase_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AppRouter {
   AppRouter._();
@@ -21,17 +21,17 @@ class AppRouter {
     navigatorKey: _rootNavigatorKey,
     initialLocation: demo,
     debugLogDiagnostics: true,
-    redirect: (final BuildContext context, final GoRouterState state) {
+    redirect: (BuildContext context, GoRouterState state) {
       return null;
     },
     routes: <RouteBase>[
       GoRoute(
         path: AppRouter.demo,
-        builder: (final BuildContext context, final GoRouterState state) =>
+        builder: (BuildContext context, GoRouterState state) =>
             const ShowcaseScreen(),
       ),
     ],
-    errorBuilder: (final BuildContext context, final GoRouterState state) =>
+    errorBuilder: (BuildContext context, GoRouterState state) =>
         ErrorScreen(error: state.error),
   );
 }

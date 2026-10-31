@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_starter_project/app/di/injection.dart';
 import 'package:flutter_starter_project/app/generated/app_localizations.dart';
@@ -10,6 +9,7 @@ import 'package:flutter_starter_project/app/theme/cubit/theme_cubit.dart';
 import 'package:flutter_starter_project/app/theme/cubit/theme_state.dart';
 import 'package:flutter_starter_project/core/constants/app_constants.dart';
 import 'package:flutter_starter_project/core/network/connection_checker/internet_connection_cubit.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:nested/nested.dart';
 
 final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: <SingleChildWidget>[
         BlocProvider<ThemeCubit>(create: (_) => serviceLocator<ThemeCubit>()),
@@ -31,41 +31,36 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (final BuildContext context, final ThemeState themeState) {
+        builder: (BuildContext context, ThemeState themeState) {
           return BlocBuilder<LanguageCubit, LanguageState>(
-            builder:
-                (
-                  final BuildContext context,
-                  final LanguageState languageState,
-                ) {
-                  return MaterialApp.router(
-                    debugShowCheckedModeBanner: false,
-                    scaffoldMessengerKey: scaffoldMessengerKey,
-                    title: AppConstants.appName,
-                    localizationsDelegates:
-                        AppLocalizations.localizationsDelegates,
-                    supportedLocales: AppLocalizations.supportedLocales,
-                    locale: languageState.locale,
-                    routerConfig: AppRouter.router,
-                    theme: AppTheme.lightTheme(
-                      context,
-                      themeState.primaryColor,
-                      themeState.fontFamily,
-                    ),
-                    darkTheme: AppTheme.darkTheme(
-                      context,
-                      themeState.primaryColor,
-                      themeState.fontFamily,
-                    ),
-                    themeMode: themeState.themeMode,
-                    builder: (final BuildContext context, final Widget? child) {
-                      return MediaQuery(
-                        data: MediaQuery.of(context),
-                        child: child!,
-                      );
-                    },
+            builder: (BuildContext context, LanguageState languageState) {
+              return MaterialApp.router(
+                debugShowCheckedModeBanner: false,
+                scaffoldMessengerKey: scaffoldMessengerKey,
+                title: AppConstants.appName,
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                locale: languageState.locale,
+                routerConfig: AppRouter.router,
+                theme: AppTheme.lightTheme(
+                  context,
+                  themeState.primaryColor,
+                  themeState.fontFamily,
+                ),
+                darkTheme: AppTheme.darkTheme(
+                  context,
+                  themeState.primaryColor,
+                  themeState.fontFamily,
+                ),
+                themeMode: themeState.themeMode,
+                builder: (BuildContext context, Widget? child) {
+                  return MediaQuery(
+                    data: MediaQuery.of(context),
+                    child: child!,
                   );
                 },
+              );
+            },
           );
         },
       ),

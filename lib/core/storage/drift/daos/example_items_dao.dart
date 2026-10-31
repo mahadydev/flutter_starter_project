@@ -9,7 +9,7 @@ class ExampleItemsDao extends DatabaseAccessor<AppDatabase>
     with _$ExampleItemsDaoMixin {
   ExampleItemsDao(super.attachedDatabase);
 
-  Future<int> insertItem(final ExampleItemsCompanion item) =>
+  Future<int> insertItem(ExampleItemsCompanion item) =>
       into(exampleItems).insert(item);
 
   Future<List<ExampleItem>> getAllItems() => select(exampleItems).get();

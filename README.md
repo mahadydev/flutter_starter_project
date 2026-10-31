@@ -56,8 +56,8 @@ A **production-ready, scalable, and maintainable Flutter starter template** for 
 
 ### Prerequisites
 
-- Flutter SDK (3.35.5+)
-- Dart (3.10.4+)
+- Flutter SDK (3.47.9+)
+- Dart (3.13.7+)
 
 ### Installation
 

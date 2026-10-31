@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_starter_project/app/app.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Utility for showing SnackBars using either a BuildContext or
 /// the global scaffoldMessengerKey.
@@ -9,18 +9,13 @@ class SnackbarUtil {
 
   /// Shows a Snackbar with the given [message].
   static void showSnackbar({
-    required final String message,
-    final BuildContext? context, // Optional context
-    final Color? backgroundColor, // Optional background color
-    final Duration duration = const Duration(seconds: 3),
-    final double elevation = 6.0,
-    final EdgeInsets margin = const EdgeInsets.symmetric(
-      horizontal: 16,
-      vertical: 8,
-    ),
-    final BorderRadius borderRadius = const BorderRadius.all(
-      Radius.circular(8),
-    ),
+    required String message,
+    BuildContext? context, // Optional context
+    Color? backgroundColor, // Optional background color
+    Duration duration = const Duration(seconds: 3),
+    double elevation = 6.0,
+    EdgeInsets margin = const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    BorderRadius borderRadius = const BorderRadius.all(Radius.circular(8)),
   }) {
     if (context != null) {
       // Use context to show Snackbar with theme's primary color
@@ -28,9 +23,8 @@ class SnackbarUtil {
         SnackBar(
           content: Text(
             message,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+            style: Theme.of(context).textTheme.bodyMedium
+                ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
           ),
           backgroundColor:
               backgroundColor ?? Theme.of(context).colorScheme.primary,

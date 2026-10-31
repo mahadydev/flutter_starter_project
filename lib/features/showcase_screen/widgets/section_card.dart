@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:material_ui/material_ui.dart';
 
 class SectionCard extends StatelessWidget {
   const SectionCard({required this.title, required this.child, super.key});
@@ -9,7 +9,7 @@ class SectionCard extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     return Card(
       elevation: 2,
       margin: EdgeInsets.zero,
@@ -21,10 +21,8 @@ class SectionCard extends StatelessWidget {
           children: <Widget>[
             Text(
               title,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.sp,
-              ),
+              style: Theme.of(context).textTheme.titleMedium
+                  ?.copyWith(fontWeight: FontWeight.bold, fontSize: 18.sp),
             ),
             SizedBox(height: 8.h),
             child,
@@ -35,7 +33,7 @@ class SectionCard extends StatelessWidget {
   }
 
   @override
-  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(StringProperty('title', title));
   }

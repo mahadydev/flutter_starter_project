@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:drift/drift.dart' show Value;
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_starter_project/app/di/injection.dart';
 import 'package:flutter_starter_project/core/storage/drift/app_database.dart';
+import 'package:material_ui/material_ui.dart';
 
 class DatabaseSection extends StatefulWidget {
   const DatabaseSection({super.key});
@@ -39,7 +39,7 @@ class _DatabaseSectionState extends State<DatabaseSection> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -61,8 +61,8 @@ class _DatabaseSectionState extends State<DatabaseSection> {
           stream: _dbItemsStream,
           builder:
               (
-                final BuildContext context,
-                final AsyncSnapshot<List<ExampleItem>> snapshot,
+                BuildContext context,
+                AsyncSnapshot<List<ExampleItem>> snapshot,
               ) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return SizedBox(
@@ -93,7 +93,7 @@ class _DatabaseSectionState extends State<DatabaseSection> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: items
                       .map(
-                        (final ExampleItem item) => Text(
+                        (ExampleItem item) => Text(
                           'ID: ${item.id}, Name: ${item.name}, '
                           'Value: ${item.value}',
                           style: TextStyle(fontSize: 14.sp),

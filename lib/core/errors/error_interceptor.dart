@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 class ErrorInterceptor extends Interceptor {
   @override
-  void onError(final DioException err, final ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     // Log the error
     log(
       'DioError: ${err.message}',

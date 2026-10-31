@@ -13,7 +13,7 @@ class LoggerUtil {
         filter: kDebugMode ? DevelopmentFilter() : ProductionFilter(),
         output: ConsoleOutput(),
         printer: PrettyPrinter(
-          dateTimeFormat: (final DateTime time) =>
+          dateTimeFormat: (DateTime time) =>
               DateFormat('yyyy-MM-dd hh:mm:ss a').format(time),
         ),
       );
@@ -24,21 +24,18 @@ class LoggerUtil {
   static final LoggerUtil instance = LoggerUtil._internal();
 
   /// Log a message at the debug level.
-  void debug(final String message) => _logger.d(message);
+  void debug(String message) => _logger.d(message);
 
   /// Log a message at the info level.
-  void info(final String message) => _logger.i(message);
+  void info(String message) => _logger.i(message);
 
   /// Log a message at the warning level.
-  void warning(final String message) => _logger.w(message);
+  void warning(String message) => _logger.w(message);
 
   /// Log a message at the error level.
-  void error(
-    final String message, [
-    final Object? error,
-    final StackTrace? stackTrace,
-  ]) => _logger.e(message, error: error, stackTrace: stackTrace);
+  void error(String message, [Object? error, StackTrace? stackTrace]) =>
+      _logger.e(message, error: error, stackTrace: stackTrace);
 
   /// Log a message at the verbose level.
-  void verbose(final String message) => _logger.t(message);
+  void verbose(String message) => _logger.t(message);
 }

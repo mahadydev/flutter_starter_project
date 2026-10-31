@@ -55,7 +55,7 @@ Future<void> _registerNetworkServices() async {
 Future<void> _registerDatabase() async {
   serviceLocator.registerSingletonAsync<AppDatabase>(
     AppDatabase.create,
-    dispose: (final AppDatabase db) => db.close(),
+    dispose: (AppDatabase db) => db.close(),
   );
   await serviceLocator.isReady<AppDatabase>();
 }

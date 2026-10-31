@@ -8,8 +8,8 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 
 class InternetConnectionCubit extends Cubit<InternetConnectionState> {
   InternetConnectionCubit({
-    final Connectivity? connectivity,
-    final InternetConnection? internetConnection,
+    Connectivity? connectivity,
+    InternetConnection? internetConnection,
   }) : _connectivity = connectivity ?? Connectivity(),
        _internetConnection = internetConnection ?? InternetConnection(),
        super(const InternetConnectionState()) {
@@ -48,9 +48,7 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
     );
   }
 
-  Future<void> _onConnectivityChanged(
-    final List<ConnectivityResult> results,
-  ) async {
+  Future<void> _onConnectivityChanged(List<ConnectivityResult> results) async {
     final ConnectivityResult result = results.isNotEmpty
         ? results.first
         : ConnectivityResult.none;
@@ -65,7 +63,7 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
     );
   }
 
-  void _onInternetStatusChanged(final InternetStatus status) {
+  void _onInternetStatusChanged(InternetStatus status) {
     emit(
       state.copyWith(
         status: status == InternetStatus.connected
@@ -75,7 +73,7 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
     );
   }
 
-  AppConnectionType _mapConnectivityResult(final ConnectivityResult result) {
+  AppConnectionType _mapConnectivityResult(ConnectivityResult result) {
     switch (result) {
       case ConnectivityResult.wifi:
         return AppConnectionType.wifi;
@@ -87,6 +85,7 @@ class InternetConnectionCubit extends Cubit<InternetConnectionState> {
         return AppConnectionType.bluetooth;
       case ConnectivityResult.vpn:
         return AppConnectionType.vpn;
+      case ConnectivityResult.satellite:
       case ConnectivityResult.other:
         return AppConnectionType.other;
       case ConnectivityResult.none:

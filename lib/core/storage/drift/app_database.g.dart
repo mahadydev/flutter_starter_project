@@ -374,24 +374,27 @@ class $$ExampleItemsTableTableManager
               $$ExampleItemsTableOrderingComposer($db: db, $table: table),
           createComputedFieldComposer: () =>
               $$ExampleItemsTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<int> id = const Value.absent(),
-                Value<String> name = const Value.absent(),
-                Value<int> value = const Value.absent(),
-              }) => ExampleItemsCompanion(id: id, name: name, value: value),
-          createCompanionCallback:
-              ({
-                Value<int> id = const Value.absent(),
-                required String name,
-                required int value,
-              }) => ExampleItemsCompanion.insert(
-                id: id,
-                name: name,
-                value: value,
-              ),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<int> value = const Value.absent(),
+          }) => ExampleItemsCompanion(id: id, name: name, value: value),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String name,
+            required int value,
+          }) => ExampleItemsCompanion.insert(id: id, name: name, value: value),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$ExampleItemsTable, ExampleItem>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $ExampleItemsTable,
+                    ExampleItem
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),

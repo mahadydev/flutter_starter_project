@@ -1,6 +1,6 @@
 // app_theme.dart
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// App theme definitions (light and dark) used by the application.
 ///
@@ -11,9 +11,9 @@ class AppTheme {
 
   /// Build a light theme using [seedColor].
   static ThemeData lightTheme(
-    final BuildContext context,
-    final Color seedColor,
-    final String fontFamily,
+    BuildContext context,
+    Color seedColor,
+    String fontFamily,
   ) {
     final ColorScheme colorScheme = ColorScheme.fromSeed(
       seedColor: seedColor,
@@ -43,9 +43,9 @@ class AppTheme {
 
   /// Build a dark theme using [seedColor].
   static ThemeData darkTheme(
-    final BuildContext context,
-    final Color seedColor,
-    final String fontFamily,
+    BuildContext context,
+    Color seedColor,
+    String fontFamily,
   ) {
     final ColorScheme colorScheme = ColorScheme.fromSeed(
       brightness: Brightness.dark,
